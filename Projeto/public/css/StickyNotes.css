@@ -1,0 +1,172 @@
+@charset "utf-8";
+body {
+	font: 100% "Trebuchet MS", Arial, Veranda, sans-serif;
+	margin: 10px; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #000000;
+	background-color: #FFFFFF;
+}
+html{
+	scrollbar-face-color: #ffffff;
+	scrollbar-shadow-color: #EFF1F2;
+	scrollbar-highlight-color: #EFF1F2;
+	scrollbar-3dlight-color: #999999;
+	scrollbar-darkshadow-color: #999999;
+	scrollbar-track-color: #EFF1F2;
+	scrollbar-arrow-color: #990000;
+	scrollbar-base-color: #ffffff;
+}
+
+/* Tips for Elastic layouts 
+1. Since the elastic layouts overall sizing is based on the user's default fonts size, they are more unpredictable. Used correctly, they are also more accessible for those that need larger fonts size since the line length remains proportionate.
+2. Sizing of divs in this layout are based on the 100% font size in the body element. If you decrease the text size overall by using a font-size: 80% on the body element or the #container, remember that the entire layout will downsize proportionately. You may want to increase the widths of the various divs to compensate for this.
+3. If font sizing is changed in differing amounts on each div instead of on the overall design (ie: #sidebar1 is given a 70% font size and #mainContent is given an 85% font size), this will proportionately change each of the divs overall size. You may want to adjust based on your final font sizing.
+*/
+.oneColElsCtrHdr #container {
+	width: 45em;  /* this width will create a container that will fit in an 800px browser window if text is left at browser default font sizes */
+	background: #FFFFFF;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	border: 0;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+}
+.oneColElsCtrHdr #container #mainContent h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+	font-size: 14px;
+}
+.oneColElsCtrHdr #mainContent {
+	padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	background: #FFFFFF;
+	font-size: 11px;
+}
+.oneColElsCtrHdr #mainContent strong{
+	font-weight:bolder;
+	color:#000000;
+}
+.oneColElsCtrHdr #footer { 
+	padding: 0 10px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+} 
+.oneColElsCtrHdr #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+	font-size:10px;
+}
+.oneColElsCtrHdr #header { 
+	padding: 0 10px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+	font-size:10px;
+} 
+.oneColElsCtrHdr #header p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+	font-size:10px;
+}
+a:link {
+	font-weight:bold;
+	color: #990000;
+	text-decoration: none;
+}
+a:visited {
+	font-weight:bold;
+	color: #990000;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+td {
+	/*font-family: "Trebuchet MS", Arial, Veranda, sans-serif;*/
+	padding: 3px;
+	border:none;
+}.oneColElsCtrHdr #container #mainContent #form input {
+	font-size: 11px;
+}
+
+/*criado a v2 para pop-up*/
+
+
+
+.oneColElsCtrHdr #popUp {
+	width: 25em;  /* this width will create a popUp that will fit in an 800px browser window if text is left at browser default font sizes */
+	background: #FFFFFF;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	border: 0px none #000000;
+	text-align: left;
+}
+.oneColElsCtrHdr #painel h2 {
+	font-size: 10px;
+}
+.oneColElsCtrHdr #painel {
+	margin-left: 80%; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: -10px 2px 0 20px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+	background-color: #FFFFFF;
+	overflow: visible;
+	position: absolute;
+	left: -142px;
+	top: 117px;
+	height: 27px;
+	width: 98px;
+} 
+.oneColElsCtrHdr #header {
+	padding: 0 10px 0 20px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+	background-color: #FFFFFF;
+} 
+.oneColElsCtrHdr #header h1 {
+	margin: 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+	font-size: 16px;
+	background-image: url(../imagens/logo_marca_controleListas.jpg);
+	background-repeat: no-repeat;
+	height: 100px;
+	padding-top: 10px;
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 0;
+}
+.oneColElsCtrHdr #popUp #mainContent h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+	font-size: 14px;
+}
+.oneColElsCtrHdr #mainContent {
+	padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	background: #FFFFFF;
+	font-size: 11px;
+}
+.oneColElsCtrHdr #mainContent strong{
+	font-weight:bolder;
+	color:#000000;
+}
+.oneColElsCtrHdr #footer { 
+	padding: 0 10px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+} 
+.oneColElsCtrHdr #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+	font-size:10px;
+}
+a:link {
+	font-weight:bold;
+	color: #990000;
+	text-decoration: none;
+}
+a:visited {
+	font-weight:bold;
+	color: #990000;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+td {
+	/*font-family: "Trebuchet MS", Arial, Veranda, sans-serif;*/
+	padding: 3px;
+	border:none;
+}.oneColElsCtrHdr #popUp #mainContent #form input {
+	font-size: 11px;
+}
+.fieldset_2 {
+	.field{ border: solid 1px red;
+	}
+.logo_peq {
+	list-style-image: url(../imagens/logo_marca_peq.jpg);
+}

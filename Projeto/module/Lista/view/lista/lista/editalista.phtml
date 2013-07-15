@@ -1,0 +1,185 @@
+<?php
+// /StickfNotes/view/sticky-notes/sticky-notes/index.phtml
+?>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Atualizar Lista</title>
+<!--Folhas de estilo -->
+<link rel="stylesheet" type="text/css" href="folhas_de_estilo/view.css" media="all">
+<!--Funções-->
+
+<script language="javascript">
+
+
+function copyElement( element ){
+		// contador para limitar add apenas 10 colunas
+		var counter = document.getElementById('counter');
+		if(counter.value < 8){
+			// gera um clone do elemento, limpando a propriedade value e renomeando para inserir novos registros
+			var nova_coluna = 'coluna_' + (parseInt(counter.value) );
+			new_el = element.cloneNode(true);
+			new_el.id = nova_coluna;
+			new_el.name = nova_coluna ; 
+			new_el.value = '';
+			
+			// adiciona o elemento ao parentNode de element
+			element.parentNode.appendChild(new_el);
+			element.parentNode.appendChild(document.createElement('br'));
+			element.parentNode.appendChild(document.createElement('br'));
+			counter.value = parseInt(counter.value) + 1;
+		}else{
+			// caso seja inserido mais de 10 colunas alert é exibido
+			alert('Você já inseriu a quantidade máxima de colunas.'); 	
+		}	 
+}
+function montaQueryUpdate(){
+	// função utilizada para montar a query que fará a inserção da lista na base de dado
+	
+	//definição das variáveis;
+	var counter = document.getElementById('counter');
+	var query = "ATRLISTA = '" +  document.getElementById('titulo_lista').value + "'," ;
+	//laço para contar quantas colunas foram inseridas e utiliza-las na query
+	for(i=1;i<=counter.value;i++){
+		coluna_atual = 'ATRCOL0'+i;
+		nome = 'coluna_'+ i;
+		valor_atual  = document.getElementById(nome).value;
+		query = query + coluna_atual + " ='" + valor_atual + "',";
+	}
+	//finalizando a query
+	
+	query = query + ' ATRSTATU = 1';
+	
+	//o campo query recebe a variável criada para inserir os dados
+	document.getElementById('query').value = query;
+}
+</script>
+ <?php  
+echo $this->headScript()->appendFile($this->basePath() . '/js/custom.js')  // add this line ?>
+</head>
+<body id="main_body" class="no_guidelines safari">
+<div id="form_container">
+    <form id="myform" class="appnitro" method="post" >
+        <div class="form_description">
+            <h2>Atualizar Lista de Registros</h2>
+            <p>Informe os dados abaixo para atualizar a lista de registros. </p>
+        </div>
+      <?php  $index = 1;?>
+          <?php foreach($lista as $lista):?>
+        
+        <ul>
+            <li id="li_1">
+                <label class="description" for="titulo_lista">Título da Lista </label>
+                <div>
+                    <input id="titulo_lista" size="100"  name="titulo_lista" class="element text large" type="text" maxlength="255" value="<?php echo $lista->getNote() ?>">
+                </div>
+                <p class="guidelines" id="guide_1"><small>Este será o título da lista. Ex.: Lista Mestra de Documentos GoodPriv@cy</small></p>
+            </li>
+            <li class="section_break">
+                <h3>Colunas da Lista</h3>
+                <p></p>
+            </li>
+            <li id="li_3">
+                <label class="description" for="coluna_1">Nome das Colunas</label>
+                <p class="guidelines" id="guide_3"><small>Estes serão os nomes das colunas que formarão a lista. 
+                    Ex.: DOCUMENTO, ÁREA RESPONSÁVEL, REVISÃO</small>                </p>
+                <br>
+                      <?php if($lista->getAtrcol01()!=null):  ?>
+                                <input size="70" id="coluna_1" name="coluna_1" class="element text medium" type="text" maxlength="255" value="<?php echo $lista->getAtrcol01() ?>">
+                                <img src="../images/plus_mini.png" width="24" height="24" onclick="copyElement(document.getElementById('coluna_<?php echo $index ?>'))" title="adicionar mais colunas">
+                                <br>
+                <br>
+                    <?php  $index++;?>
+                     <?php endif; ?>  
+                    <?php if($lista->getAtrcol02()!=null):  ?>
+                            <input size="70" id="coluna_2" name="coluna_2" class="element text medium" type="text" maxlength="255" value="<?php echo $lista->getAtrcol02() ?>">
+                                <br>
+                                <br><?php  $index++;?>
+                     <?php endif; ?>      
+                     <?php if($lista->getAtrcol03()!=null):  ?>               
+                                <input size="70" id="coluna_3" name="coluna_3" class="element text medium" type="text" maxlength="255" value="<?php echo $lista->getAtrcol03() ?>">
+                                <br>
+                        <br>
+                     <?php endif; ?>        
+                       <?php if($lista->getAtrcol04()!=null):  ?>
+                                <input size="70" id="coluna_4" name="coluna_4" class="element text medium" type="text" maxlength="255" value="<?php echo $lista->getAtrcol04() ?>">
+                                <br>
+                                <br><?php  $index++;?>
+                        <?php endif; ?>              
+                       <?php if($lista->getAtrcol05()!=null):  ?>
+                                <input size="70" id="coluna_5" name="coluna_5" class="element text medium" type="text" maxlength="255" value="<?php echo $lista->getAtrcol05() ?>">
+                                <br>
+                                <br><?php  $index++;?>
+                        <?php endif; ?>              
+                       <?php if($lista->getAtrcol06()!=null):  ?>
+                                <input size="70" id="coluna_6" name="coluna_6" class="element text medium" type="text" maxlength="255" value="<?php echo $lista->getAtrcol06() ?>">
+                                <br>
+                                <br><?php  $index++;?>
+                        <?php endif; ?>              
+                       <?php if($lista->getAtrcol07()!=null):  ?>
+                                <input size="70" id="coluna_7" name="coluna_7" class="element text medium" type="text" maxlength="255" value="<?php echo $lista->getAtrcol07() ?>">
+                                <br>
+                                <br><?php  $index++;?>
+                        <?php endif; ?>   
+                       <?php if($lista->getAtrcol08()!=null):  ?>
+                                <input size="70" id="coluna_8" name="coluna_8" class="element text medium" type="text" maxlength="255" value="<?php echo $lista->getAtrcol08() ?>">
+                                <br>
+                                <br><?php  $index++;?>
+                     <?php endif; ?> 
+                                </li>
+        </ul>
+        <?php endforeach; ?>
+         <style>
+            .bott
+            {
+                border:1px solid;
+                width: 105px;
+                cursor:pointer;
+                  float:left;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                
+            }
+            .bott:hover{
+                background-color: gray;
+                    
+            }
+              .actions
+            {
+                margin-left: 25px;
+            }
+            
+        </style>
+        
+        <div id="botoes">
+            <input id="query" type="hidden" name="query" readonly="readonly">
+            <input id="counter" type="hidden" value="<?php echo $index ?>">
+             </div>
+         <div class="actions">
+             
+       <div class="bott" id="alter">&nbsp;Atualizar Lista</div>
+         <input id="idlista" name ="idlista" type="hidden" value=<?php echo $idmodulo ?> >
+         </div>
+  
+    </form>
+    </div>
+<style type="text/css">
+<!--
+#roda{height: 5px; background:#990000; width:95%; margin-top:50px;}
+-->
+</style>
+
+
+	<div align="center">
+    <div id="roda"> </div>
+    <div id="footer" align="center">
+       <p>Copyright - MARCA ACSP - Todos os direitos reservados - 2013<br>
+         Desenvolvido por Engenharia de Processos ACSP   </p>
+	</div>
+    </div>
+    
+    
+  
+
+
+
+</body></html>

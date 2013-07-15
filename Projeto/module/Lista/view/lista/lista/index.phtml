@@ -1,0 +1,93 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SIG - Controle de Documentos</title>
+<link href="folhas_de_estilo/oneColElsCtrHdr.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+<!--
+function MM_effectHighlight(targetElement, duration, startColor, endColor, restoreColor, toggle)
+{
+	Spry.Effect.DoHighlight(targetElement, {duration: duration, from: startColor, to: endColor, restoreColor: restoreColor, toggle: toggle});
+}
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+
+
+</script>
+    
+
+    
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    
+</head>
+<body class="oneColElsCtrHdr">
+<div id="container">
+    <div id="header">
+
+    </div>
+    <div id="mainContent">
+      <p align="left"> 
+          <h4> Módulos</h4>
+                Selecione um dos módulos abaixo para visualizar e editar suas Listas e Registros:
+                 <a style="width:45px;" id ="<?php echo $idmodulo ?>"class="show-modal2"> <img src="../images/new.png" width="25" height="27" alt="Incluir nova Lista" border="0" title="Incluir nova Lista">
+                 </a>
+                
+                </p>
+               
+     
+        
+     <?php foreach($lista as $lista):?>
+    
+
+                   <div id="lista">
+                
+                
+        <ul style="text-align: left;">
+                        <li>
+            	<a title="visualizar registros" href="../registro/<?php echo $lista->getId() ?>"><b><?php echo $lista->getNote() ?></b></a>
+                          
+                            <a href="javascript:void(0)" onmousedown="MM_effectHighlight('div1', 1000, '#FFFF99', '#ffffff', '#ffffff', false)" onmouseup="disp_confirm('1')">
+                                </a>
+                
+             
+                            <a href="#" class="delete" id="remove-<?php echo $lista->getId(); ?>" >
+                                <img src="../images/remove.png" width="25" height="25" border="0" title="excluir lista">
+                            </a>  
+                
+      
+                                  <body>                 
+ 
+            <a style="width:45px;" id ="<?php echo $lista->getId() ?>"class="show-modal"> 
+        <img src="../images/icon_edit.png" width="25" height="25" border="0" title="editar lista">
+                            </a>
+</body>
+              
+           </div>
+                        </li>
+                        
+                    </ul>
+                
+                    <?php endforeach; ?>
+                <div id="my-dialog"></div>          
+                <!-- end #mainContent -->
+    </div>
+    <div id="footer">
+		</div>
+<style type="text/css">
+<!--
+#roda{height: 5px; background:#990000; width:95%}
+-->
+</style>
+
+ 
+
+
+</body>
+
+       
+    
+    <?php  
+echo $this->headScript()->appendFile($this->basePath() . '/js/custom.js')  // add this line ?>
+</html>

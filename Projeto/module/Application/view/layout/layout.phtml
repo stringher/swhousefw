@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title> MARCA ACSP </title>
+
+        <script src="http://dmarca.acsp.com.br/marcav2/js/jquery.js" language="JavaScript" text="text/JavaScript"></script>
+        <script src="http://dmarca.acsp.com.br/marcav2/js/funcoesJS.js" language="JavaScript" text="text/JavaScript"></script>
+        <script src="http://dmarca.acsp.com.br/marcav2/js/thickbox.js" language="JavaScript" text="text/JavaScript"></script>
+
+        <script src="http://dmarca.acsp.com.br/marcav2/js/bootstrap.js" language="JavaScript" text="text/JavaScript"></script>
+
+        <link href="http://dmarca.acsp.com.br/marcav2/css/estilos.css" rel="stylesheet" type="text/css">
+        <link href="http://dmarca.acsp.com.br/marcav2/css/menu.css" rel="stylesheet" type="text/css">
+        <link href="http://dmarca.acsp.com.br/marcav2/css/thickbox.css" rel="stylesheet" type="text/css">
+        <link href="http://dmarca.acsp.com.br/marcav2/css/bootstrap.css" rel="stylesheet" type="text/css">
+    </head>
+    <div id="top" name="top" width="100" style="padding:0px 10px 0px 10px;">
+
+        <div style="width:737px;margin:0 auto; padding-top: 20px;padding-bottom: 20px;">
+            <img  src="http://localhost/sig/public/images/marca_sig_logo.png">
+        </div>   
+        <div style="width:737px;margin:0 auto;background-color:#990000;">
+            <ul id="menu_top" >
+
+                <li><a href="http://dmarca.acsp.com.br/marcav2/welcome">Inicio</a></li>  
+                <li><a href="principal.phtml">Sig</a></li>  
+            </ul>
+            <!-- USER INFO-->
+            <div class="btn-group pull-right" > 
+                <a class="btn  dropdown-toggle "  data-toggle="dropdown"  >
+                    <span class="icon-user"></span>
+                    USUARIO        <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu "  >
+
+                    <li><a href="http://dmarca.acsp.com.br/marcav2/"><span class="icon-home"></span>Home</a></li>
+                    <li class="divider"></li>
+                    <li><a href="http://dmarca.acsp.com.br/marcav2/index.php/welcome/logout"><span class="icon-ban-circle"></span>Sair</a></li>
+                </ul>
+            </div>   
+            <!-- USER INFO--> 
+        </div>
+        </br>
+
+
+    </div>
+    <br><script  type="text/javascript">
+        function slideMenuCad() {
+            $('#div_menu_cad').slideToggle('slow')
+        }
+
+        function slideMenuRela() {
+            $('#div_menu_rel').slideToggle('slow')
+        }
+
+    </script> 
+    <body>
+        <div id="conteudo" style="margin:0 auto;">
+
+            <table width="737" height="198"  border="0" align="center" cellpadding="0" cellspacing="0">
+
+                <tr>
+                    <td height="9" colspan="3" align="right"  bgcolor="#FFFFFF">
+
+
+                    </td>
+                </tr>
+                <tr><td colspan="3"></td></tr>
+
+                <tr>
+                    <td height="8" align="center" bgcolor="#F4F4F4"><div id="gomo"></div></td>
+                    <td width="22" height="8" align="center" bgcolor="#FFFFFF">&nbsp;</td>
+                    <td width="458" align="center" bgcolor="#FFFFFF">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="100" align="center" valign="top" bgcolor="#F4F4F4">
+
+                        <div class="urbangreymenu" align="left">
+                            <ul>
+
+                                <li>
+                                    <div  align="left" class="menu" onclick="slideMenuCad();"><a  style="background-color:#C0C0C0">>>Sig</a></div>
+                                </li>
+                            </ul>
+                            <div align="left" id="div_menu_cad" >
+                                <ul>
+
+
+                                    <li>
+                                        <div style="margin-left: 40px;"><a href="modulo"><b></b> Modulo</a></div>
+
+                                    </li>   
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        </div>
+
+                        <p>&nbsp;</p></td>
+
+                    <td  colspan="2">
+
+                        <div id="div_msgmenu" align="center"> 
+
+                            <?php echo $this->content; ?>
+
+                        </div>
+
+
+                    </td>
+                </tr>
+
+
+
+            </table>
+
+
+
+
+        </div>
+    </body>
+    <div align="center">
+        <div id="roda" style="clear:both;"></div>
+        <div id="footer" align="center" style="height:200px;clear: both;">
+            <p style="color:#000;font-size: 12px; ">Copyright - MARCA ACSP - Todos os direitos reservados - 2010<br />
+
+                Desenvolvido por Engenharia de Processos ACSP   </p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

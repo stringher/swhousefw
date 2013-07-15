@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+
+<div class="head-section">
+    <h1>São Paulo Chamber of Commmerce</h1>
+    <ul>
+        <li>
+            <a href="http://djucesp.acsp.com.br/acspjucesp/lancamento/lista">Voltar</a>
+        </li>
+    </ul>
+</div>
+
+<style> 
+    
+    
+.head-section h1 {
+    color: #CC0000;
+    float: left;
+    font-family: 'MuseoSlab500Regular',sans-serif !important;
+    font-size: 22px;
+    font-weight: normal;
+    height: 34px;
+    line-height: 34px;
+}
+    .inputindex
+    { 
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        background: none repeat scroll 0 0 #FFFFFF;
+        border-color: #BBBBBB #CCCCCC #CCCCCC;
+        border-image: none;
+        border-radius: 3px 3px 3px 3px;
+        border-right: 1px solid #CCCCCC;
+        border-style: solid;
+        border-width: 1px;
+        box-shadow: 2px 2px 2px #EFEFEF inset;
+        display: inline;
+        float: left;
+        height: 14px;
+        margin-left: 17px;
+        padding: 8px;
+        width: 50%;
+    }
+
+    .inputselect
+    { 
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        background: none repeat scroll 0 0 #FFFFFF;
+        border-color: #BBBBBB #CCCCCC #CCCCCC;
+        border-image: none;
+        border-radius: 3px 3px 3px 3px;
+        border-right: 1px solid #CCCCCC;
+        border-style: solid;
+        border-width: 1px;
+        box-shadow: 2px 2px 2px #EFEFEF inset;
+        display: inline;
+        float: left;
+        height: 34px;
+        margin-left: 17px;
+        padding: 8px;
+        width: 50%;
+    }
+
+
+
+</style>
+
+
+<table class="info-det">
+    <tr>
+        <td colspan="1"><p>Produto</p></td>
+        <td colspan="3"><select id="selproduto" class="inputselect" >
+                            <option value="4">Cert.Origem</option>
+                                                       <option value="5">Impressao</option></select> </td>
+    </tr>
+    <tr>
+        <td colspan="1"><p>Quantidade</p></td>
+        <td colspan="3"><input class= "inputindex"  id="txtQuantidade" name="txtQuantidade" type ="text" /> </td>
+        <td colspan="1"><p>Valor Unitário</p></td>
+        <td colspan="3"><input  class= "inputindex" id="txtValor" name="txtValor" type ="text" /> </td>
+
+    </tr>
+    <tr>
+        <td colspan="1"><p>Razão Social</p></td>
+        <td colspan="3"><input  class= "inputindex" id="txtRazaosocial" name="txtRazaosocial" type ="text" /> </td>
+        <td colspan="1"><p>Nome de Origem</p></td>
+        <td colspan="3"><input  class= "inputindex" type ="text" id="txtNomeOrigem" name="txtNomeOrigem" /> </td>
+    </tr>
+
+    <tr>
+        <td colspan="1"><p>Histórico</p></td>
+        <td colspan="3"><input  class= "inputindex" name="txtHistorico" id="txtHistorico" type ="text" /> </td>
+        <td colspan="1"><p>Obs. ao Caixa</p></td>
+        <td colspan="3"><input  class= "inputindex" name="txtObsCaixa" id="txtObsCaixa" type ="text" /> </td>
+    </tr>
+    <tr>
+        <td colspan="1"><p>Controle</p></td>
+        <td colspan="3"><input  class= "inputindex" name="txtControle" id="txtControle" type ="text" /> </td>
+        <td colspan="1"><p>N Ordem</p></td>
+        <td colspan="3"><input  class= "inputindex" name="txtNordem" id="txtNordem" type ="text" /> </td>
+    </tr>
+
+    <tr>
+        <td colspan="1"><p>Senha</p></td>
+        <td colspan="3"><input  class= "inputindex" size=5 name="txtSenha" id="txtSenha" type ="text" /> </td>
+    </tr>
+
+
+</table>
+
+<div class="buttons-box">
+    <div class="messages">
+        <a style="width:55px;" class="show-modal"> Pesquisar</a>
+        <a id="create"> Emitir</a>
+
+    </div>
+</div>
+<div id="my-dialog"></div>  
+

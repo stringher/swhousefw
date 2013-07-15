@@ -1,0 +1,128 @@
+<?php
+// /StickfNotes/view/sticky-notes/sticky-notes/index.phtml
+?>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SIG - Controle de Documentos</title>
+<link href="folhas_de_estilo/oneColElsCtrHdr.css" rel="stylesheet" type="text/css">
+</head>
+<body class="oneColElsCtrHdr">
+<div id="container"  style="width: 700px;" id="container">
+    <div id="mainContent">
+        <div id="header" align="left">   </div>
+             <table width="102%" border="0" style="margin-top: 49px; margin-left: 25px;">
+                 
+            <tbody>
+                <?php foreach($atributo as $atributo):?>   
+                <tr>
+                    <?php if($atributo->getAtrcol01()!=null):  ?>
+                        <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol01() ?></strong></td>
+                    <?php endif; ?>  
+                    <?php if($atributo->getAtrcol02()!=null):  ?>
+                    <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol02() ?></strong></td>
+                    <?php endif; ?> 
+                    
+                    <?php if($atributo->getAtrcol03()!=null):  ?>
+                    
+                    <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol03() ?></strong></td>
+                    <?php endif; ?>  
+                   
+                     <?php if($atributo->getAtrcol04()!=null):  ?>
+                    
+                    <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol04() ?></strong></td>
+                    <?php endif; ?>  
+                    <?php if($atributo->getAtrcol05()!=null):  ?>
+                    
+                    <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol05() ?></strong></td>
+                    <?php endif; ?>  
+                    <?php if($atributo->getAtrcol06()!=null):  ?>
+                    
+                    <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol06() ?></strong></td>
+                    <?php endif; ?>  
+                    <?php if($atributo->getAtrcol07()!=null):  ?>
+                    
+                    <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol07() ?></strong></td>
+                    <?php endif; ?>  
+                    <?php if($atributo->getAtrcol08()!=null):  ?>
+                    
+                    <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol08() ?></strong></td>
+                <?php endif; ?>  
+                  
+                     
+                </tr>   
+                <?php endforeach; ?> 
+                
+                <style>
+                    .row0 {
+    background-color: #ffffff;font-size: 12px;
+}
+
+tr.row0:hover {
+    background-color: #ffff00;font-size: 12px;
+}
+
+.row1 {
+    background-color: #f0f0f0;font-size: 12px;
+}
+
+tr.row1:hover {
+    background-color: #ffff00;font-size: 12px;
+}
+                    </style>
+               <?php $rowclass = 0;?>
+             <?php foreach($registro as $registro):?>   
+                
+                  <tr class="row<?= $rowclass ?>"  id="tr1">
+                        <?php if($registro->getRegcol01()!=null):  ?>
+                                <td><?php echo $registro->getRegcol01() ?></td>
+                                         <?php endif; ?>  
+                    <?php if($registro->getRegcol02()!=null):  ?>
+                                <td><?php echo $registro->getRegcol02() ?></td>
+                      <?php endif; ?>  
+                    <?php if($registro->getRegcol03()!=null):  ?>           
+                                <td><?php echo $registro->getRegcol03() ?></td>
+                      <?php endif; ?>  
+                    <?php if($registro->getRegcol04()!=null):  ?>           
+                                <td><?php echo $registro->getRegcol04() ?></td>
+                     <?php endif; ?>  
+                    <?php if($registro->getRegcol05()!=null):  ?>            
+                                     <td><?php echo $registro->getRegcol05() ?></td>
+                     <?php endif; ?>  
+                    <?php if($registro->getRegcol06()!=null):  ?>                 
+                                      <td><?php echo $registro->getRegcol06() ?></td>
+                       <?php endif; ?>  
+                    <?php if($registro->getRegcol07()!=null):  ?>                
+                                                 <td><?php echo $registro->getRegcol07() ?></td>
+                                     <?php endif; ?>  
+                    <?php if($registro->getRegcol08()!=null):  ?>             
+                                                  <td><?php echo $registro->getRegcol08() ?></td>
+                                  <?php endif; ?>                  
+                  </tr>
+                  <tr bgcolor="#FFFFFF" id="tr3">
+                  </tr>
+                <?php $rowclass = 1 - $rowclass; ?>
+                                   
+                    
+                    <?php endforeach; ?>
+                </tbody></table>
+                <!-- end #mainContent -->
+    </div>
+    <div id="footer">
+		</div>
+<style type="text/css">
+<!--
+#roda{height: 5px; background:#990000; width:95%}
+-->
+</style>
+
+
+  
+
+
+        <!-- end #footer -->
+    
+    <!-- end #container -->
+
+
+
+</body></html>

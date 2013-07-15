@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ACSP - Sistema Jucesp</title>
+        <meta name="author" content="Essncia Agncia Digital" />
+
+        <link rel="stylesheet" type="text/css" href="http://djucesp.acsp.com.br/acspjucesp/media/css/style.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="http://dcontroller.acsp.com.br/acspcontroller/media/css/style.css" media="all" />
+        <link rel="shortcut icon" type="image/x-icon" href="http://dcontroller.acsp.com.br/acspcontroller/media/img/favicon.ico"/>
+        
+        <script type="text/javascript" src="http://djucesp.acsp.com.br/acspjucesp/media/js/jquery.js"></script>
+        <script type="text/javascript" src="http://djucesp.acsp.com.br/acspjucesp/media/js/jquery.jField.js"></script>
+        <script type="text/javascript" src="http://djucesp.acsp.com.br/acspjucesp/media/js/jquery.maskedinput.js"></script>
+        <script type="text/javascript" src="http://djucesp.acsp.com.br/acspjucesp/media/js/jquery.numeric.js"></script>
+        <script type="text/javascript" src="http://djucesp.acsp.com.br/acspjucesp/media/js/jquery.price_format.js"></script>
+        <script type="text/javascript" src="http://djucesp.acsp.com.br/acspjucesp/media/js/classemascara.js"></script>
+        <script type="text/javascript" src="http://djucesp.acsp.com.br/acspjucesp/media/js/functions.js"></script>
+        <script type="text/javascript" src="http://djucesp.acsp.com.br/acspjucesp/media/js/jquery-ui.min.js"></script>
+
+
+        <script type="text/javascript">
+            function baseUrl(url) {
+                if (url == undefined) {
+                    url = '';
+                }
+
+                return 'http://djucesp.acsp.com.br/acspjucesp/' + url;
+            }
+
+            $(document).ready(function() {
+                $.ajaxSetup({
+                    beforeSend: function()
+                    {
+                        if ($('#ajax_loading').length == 0) {
+                            $('body').append("<div id='ajax_loading'>Carregando...</div>");
+                        }
+
+                        $('#ajax_loading').fadeIn(2000);
+                    },
+                    complete: function()
+                    {
+                        if ($('#ajax_loading').length == 0)
+                        {
+                            return;
+                        }
+
+                        $('#ajax_loading').fadeOut(1000);
+                        $('#ajax_error').fadeOut(7000);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown)
+                    {
+                        if ($('#ajax_error').length == 0) {
+                            $('body').append("<div id='ajax_error'>Ocorreu um erro interno do servidor</div>");
+                            console.debug(jqXHR.responseText);
+                        }
+
+                        $('#ajax_error').fadeIn(2000);
+                    }
+                });
+            });
+        </script>
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+                ->prependStylesheet($this->basePath() . '/css/caixa.css')
+        ?>
+        <?php echo $this->headScript()->appendFile($this->basePath() . '/js/caixa.js')  // add this line ?>
+    </head>
+    <body>
+      <div class="container">
+            <div class="my-nav-header">
+                <a class="bread">Associa&ccedil;&atilde;o </a><br><a class="bread">Comercial </a>
+                <ul>
+                    <li><img class="icon" src="http://dcontroller.acsp.com.br/acspcontroller/media/img/user.png" alt="ACSP" /><a>Logado como OPERADOR JUCESP TST - JUCESP - ATENDENTES                  - O PROPRIO EMITENTE                  </a></li>
+                    <li><a href="http://dcontroller.acsp.com.br/acspcontroller/associado/associado/minhaconta">Minha Conta</a></li>
+                    <li><a style="color:#bc0000;text-decoration: underline;" href="http://dcontroller.acsp.com.br/acspcontroller/associado/login/deslogar">Sair</a></li>
+                </ul>
+            </div>
+            <div class="header">
+                <div class="main-header">
+                    <div class="up-head">
+                         <div>
+                            <div class="logo"><a>CONTROLLER</a></div>
+                            <div class="flecha">
+                                <img src="http://dcontroller.acsp.com.br/acspcontroller/media/img/flecha.png" alt="ACSP" />
+                                <img class="logo-acsp" src="http://dcontroller.acsp.com.br/acspcontroller/media/img/logo_pb_acsp.jpg" alt="ACSP" />
+                            </div>
+                        </div>
+                                                   
+                                            </div>
+                    <div class="main-menu">
+                            <script type="text/javascript">
+                            <!--//--><![CDATA[//><!--
+        							
+                                sfHover = function() {
+                                    var sfEls = document.getElementById("nav").getElementsByTagName("LI");
+                                    for (var i = 0; i < sfEls.length; i++) {
+                                        sfEls[i].onmouseover = function() {
+                                            this.className += " sfhover";
+                                        }
+                                        sfEls[i].onmouseout = function() {
+                                            this.className = this.className.replace(new RegExp(" sfhover\\b"), "");
+                                        }
+                                    }
+                                }
+                                if (window.attachEvent)
+                                    window.attachEvent("onload", sfHover);
+
+                                //--><!]]>
+                            </script>
+
+                            <ul id="nav">
+                                <li>
+                                    <a href="http://dcontroller.acsp.com.br/acspcontroller/associado/index">
+                                        <em>PÁGINA INICIAL</em>
+                                    </a>
+                                </li>
+
+                                                                                                
+                                                                    <li><a href="http://dcontroller.acsp.com.br/acspcontroller/associado/loginsys/token/jucesp"><em>JUCESP</em></a></li>
+                                                                    
+                                                                    <li><a href="http://dcontroller.acsp.com.br/acspcontroller/associado/loginsys/token/comex"><em>COMEX</em></a></li>
+                                                                    
+                                    <li style="float: right;">
+                                        <a href="#">
+                                            <em>
+                                                Último login: Quarta, 08 de Maio de 2013 as 11:28:47                                            </em>
+                                        </a>
+                                    </li>
+                            </ul>
+                                                                        </div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="content">
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            setErrors(null);
+                        });
+                    </script>
+
+                    <div class="section">
+
+
+
+                        <div class="content">
+
+
+
+                            <div class="conteudo">
+<?php echo $this->content; ?>
+                            </div>
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="nav">
+                        <div class="main-nav">
+                            <div class="search-box">
+                                <form method="post" action="#">
+                                    <input type="text" /><input type="submit" value="&gt;" class="bt" />
+                                </form>
+                            </div>
+
+                            <h2>menu</h2>
+                            <ul class="simple-list">
+                                <li></li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+                    </body>
+                    </html>
+

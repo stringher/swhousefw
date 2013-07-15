@@ -1,0 +1,148 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SIG - Controle de Documentos</title>
+<link href="folhas_de_estilo/oneColElsCtrHdr.css" rel="stylesheet" type="text/css" />
+
+ <?php  
+echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))  
+    ->prependFile($this->basePath() . '/js/bootstrap.min.js')  
+    ->prependFile($this->basePath() . '/js/jquery.min.js')  
+    ->appendFile($this->basePath() . '/js/custom2.js')  // add this line ?>
+</head>
+<body class="oneColElsCtrHdr">
+<div id="popUp">
+    <!--<div id="header">
+        <h1>SIG - Controle de Documentos</h1> 
+         
+    </div>-->
+    <div id="mainContent">
+       <img id="top" src="imagens/logo_marca_peq.jpg" alt=""> 
+         <h1>Novo Registro</h1>
+  <form  method="POST" name="form" id="form">
+            <table>
+                  <?php foreach($lista as $lista):?>
+               <?php if($lista->getAtrcol01()!=null):  ?> 
+                <tr style="display:block">
+                    <td width="100"><?php echo $lista->getAtrcol01() ?>:</td>
+                    <td><textarea id="coluna_1" name="coluna_1" rows="2" cols="28"></textarea>
+                    </td>
+                </tr>
+                <?php endif; ?>     
+                <?php if($lista->getAtrcol02()!=null):  ?>
+                <tr style="display:block">
+                    <td width="100"><?php echo $lista->getAtrcol02() ?>:</td>
+                    <td><textarea  id="coluna_2" name="coluna_2" rows="2" cols="28"></textarea>
+                    </td>
+                </tr>
+                <?php endif; ?>     
+                <?php if($lista->getAtrcol03()!=null):  ?>
+                <tr style="display:block">
+                    <td width="100"><?php echo $lista->getAtrcol03() ?></td>
+                    <td><textarea id="coluna_3" name="coluna_3" rows="2" cols="28"></textarea>
+                    </td>
+                </tr>
+                <?php endif; ?>     
+                <?php if($lista->getAtrcol04()!=null):  ?>
+                <tr style="display:block">
+                    <td width="100"><?php echo $lista->getAtrcol04() ?></td>
+                    <td><textarea id="coluna_4" name="coluna_4" rows="2" cols="28"></textarea>
+                    </td>
+                </tr>
+                <?php endif; ?>     
+                <?php if($lista->getAtrcol05()!=null):  ?>
+                <tr style="display:block">
+                    <td width="100"><?php echo $lista->getAtrcol05() ?>:</td>
+                    <td><textarea id="coluna_5" name="coluna_5" rows="2" cols="28"></textarea>
+                    </td>
+                </tr>
+                 <?php endif; ?>     
+                <?php if($lista->getAtrcol06()!=null):  ?>				
+                <tr style="display:none">
+                    <td width="100"><?php echo $lista->getAtrcol06() ?>:</td>
+                    <td><textarea id="coluna_6" name="coluna_6" rows="2" cols="28"></textarea>
+                    </td>
+                </tr>
+                 <?php endif; ?>     
+                <?php if($lista->getAtrcol07()!=null):  ?>				
+                <tr style="display:none">
+                    <td width="100"><?php echo $lista->getAtrcol07() ?>:</td>
+                    <td><textarea id="coluna_7" name="coluna_7" rows="2" cols="28"></textarea>
+                    </td>
+                </tr>
+                 <?php endif; ?>     
+                <?php if($lista->getAtrcol08()!=null):  ?>
+                <tr style="display:none">
+                    <td width="100"><?php echo $lista->getAtrcol08() ?>:</td>
+                    <td><textarea id="coluna_8" name="coluna_8" rows="2" cols="28"></textarea>
+                    </td>
+                </tr> 
+                    <?php endif; ?>    
+                <?php endforeach; ?> 
+                                <tr>
+                    <td colspan="2"><input type="hidden" name="query" id="query" readonly="readonly" size="200" />
+                       </td>
+                </tr>
+                       
+            </table>
+      
+      <style>
+            .create
+            {
+                border:1px solid;
+                width: 85px;
+                cursor:pointer;
+                float:left;
+                padding-top: 5px;
+                
+            }
+            .create:hover{
+                background-color: gray;
+                    
+            }
+            
+            .actions
+            {
+                margin-left: 25px;
+            }
+            
+        </style>
+       <div class="actions">
+           <input id="idlista" name ="idlista" type="hidden" value=<?php echo $idlista ?> >
+        <div class="create" id="create">&nbsp;Inserir</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <div  class="create" onclick="window.close()" id="Cancel">&nbsp;Cancelar</div>
+        </div>
+                    </form>
+        <!-- end #mainContent -->
+    </div>
+    <!--<div id="footer">
+        <p>ACSP - SIG </p>
+         end #footer 
+    </div>-->
+    <!-- end #container -->
+</div>
+<style type="text/css">
+<!--
+#roda{height: 5px; background:#990000; width:95%; margin-top:50px;}
+-->
+</style>
+
+
+	<div align="center">
+    <div id="roda"> </div>
+    <div id="footer" align="center">
+       <p>Copyright - MARCA ACSP - Todos os direitos reservados - 2013<br />
+         Desenvolvido por Engenharia de Processos ACSP   </p>
+	</div>
+    </div>
+    
+    </div>
+  </body>
+</html>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<?php
+// /StickfNotes/view/sticky-notes/sticky-notes/index.phtml
+?>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SIG - Controle de Documentos</title>
+<link href="folhas_de_estilo/oneColElsCtrHdr.css" rel="stylesheet" type="text/css">
+</head>
+<body class="oneColElsCtrHdr">
+<div id="container">
+    </div>
+    <div id="mainContent">
+        <p align="left"><h4> Módulos</h4>
+                 Selecione um dos <strong>3</strong> módulos abaixo para visualizar e editar suas Listas e Registros:</p>
+       
+     <?php foreach($modulo as $modulo):?>
+        <ul>
+                        <li>
+              <p align="left">	<a title="visualizar registros" href="lista/<?php echo $modulo->getId() ?>" ><b><?php echo $modulo->getNote() ?></b></a></li>
+</p>          
+                    </ul>
+                
+                    <?php endforeach; ?>
+                <!-- end #mainContent -->
+    </div>
+    <div id="footer">
+		</div>
+<style type="text/css">
+<!--
+#roda{height: 5px; background:#990000; width:95%}
+-->
+</style>
+
+
+	
+    
+    </div>
+  
+
+
+        <!-- end #footer -->
+    
+    <!-- end #container -->
+
+
+
+</body></html>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+ <?php echo $this->headScript()->appendFile($this->basePath() . '/js/caixa.js')  // add this line ?>
+<div class="head-section">
+    <h1>&nbsp;&nbsp;&nbsp;Pesquisa de Lançamentos</h1>
+</div>
+<table class="info-det">
+    <tr>
+        <th colspan="4"></th>
+    </tr>
+    <tr>
+        <td colspan="3"><b>Selecionar</b></td>
+        <td colspan="3"><b>Ordem</b></td>
+        <td colspan="3"><b>Razão Social</b></td>
+        <td colspan="3"><b>Controle</b></td>
+    </tr>
+    <?php foreach($lista as $lista):?>
+        <tr>
+            <td colspan="3">
+              <a href="#" class="delete" id="remove-<?php echo $lista->getNordem(); ?>">CANCELAR</a>  
+            </td>
+            <td colspan="3"><p><?php echo $lista->getNordem(); ?></p></td>
+            <td colspan="3"><p><?php echo $lista->getRazaosocial(); ?></p></td>
+            <td colspan="3"><p><?php echo $lista->getControle(); ?></p></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<div class="buttons-box">
+    <div class="messages">
+        <a id="close" >Fechar</a>
+    </div>
+</div>
+
+

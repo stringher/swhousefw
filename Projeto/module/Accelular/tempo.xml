@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itens>
+<item>
+<codcos><![CDATA[00000002]]></codcos>
+<razao><![CDATA[ASSOCIACAO COMERCIAL DE SAO PAULO]]></razao>
+<emissa><![CDATA[20130426]]></emissa>
+<menota><![CDATA[10]]></menota>
+<prcven><![CDATA[1.00]]></prcven>
+<valor><![CDATA[1.00]]></valor>
+<numord><![CDATA[123456789]]></numord>
+</item>
+<item>
+<codcos><![CDATA[00000031]]></codcos>
+<razao><![CDATA[ASSOCIACAO COMERCIAL DE SAO PAULO]]></razao>
+<emissa><![CDATA[20130426]]></emissa>
+<menota><![CDATA[10]]></menota>
+<prcven><![CDATA[1.00]]></prcven>
+<valor><![CDATA[1.00]]></valor>
+<numord><![CDATA[123456789]]></numord>
+</item>
+</itens>

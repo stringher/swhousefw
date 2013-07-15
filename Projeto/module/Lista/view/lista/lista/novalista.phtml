@@ -1,0 +1,164 @@
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Inserir Nova Lista</title>
+<!--Folhas de estilo -->
+<link rel="stylesheet" type="text/css" href="folhas_de_estilo/view.css" media="all">
+
+<script language="javascript">
+
+
+function copyElement( element ){
+		// contador para limitar add apenas 10 colunas
+		var counter = document.getElementById('counter');
+		if(counter.value < 8){
+			// gera um clone do elemento, limpando a propriedade value e renomeando para inserir novos registros
+			var nova_coluna = 'txtatrcol0' + (parseInt(counter.value) + 1);
+			new_el = element.cloneNode(true);
+			new_el.id = nova_coluna;
+			new_el.name = nova_coluna ; 
+                        document.getElementById('valor').value =  nova_coluna ;
+			new_el.value = '';
+			
+			// adiciona o elemento ao parentNode de element
+			element.parentNode.appendChild(new_el);
+			element.parentNode.appendChild(document.createElement('br'));
+			element.parentNode.appendChild(document.createElement('br'));
+			counter.value = parseInt(counter.value) + 1;
+		}else{
+			// caso seja inserido mais de 10 colunas alert é exibido
+			alert('Você já inseriu a quantidade máxima de colunas.'); 	
+		}	 
+}
+function removeElement(element,node){
+	var counter = document.getElementById('counter');
+	if (parseInt(counter.value) > 1) {
+		element.parentNode.removeChild(document.getElementById(node));
+		counter.value = parseInt(counter.value) - 1;
+		var nova_coluna = 'txtatrcol0' + (parseInt(counter.value));
+		document.getElementById('valor').value =  nova_coluna ;
+	}
+}
+function montaQueryUpdate(){
+	// função utilizada para montar a query que fará a inserção da lista na base de dado
+	
+	//definição das variáveis;
+	var counter = document.getElementById('counter');
+	var query = "ATRLISTA = '" +  document.getElementById('titulo_lista').value + "'," ;
+	//laço para contar quantas colunas foram inseridas e utiliza-las na query
+	for(i=1;i<=counter.value;i++){
+		coluna_atual = 'ATRCOL0'+i;
+		nome = 'coluna_'+ i;
+		valor_atual  = document.getElementById(nome).value;
+		query = query + coluna_atual + " ='" + valor_atual + "',";
+	}
+	//finalizando a query
+	
+	query = query + ' ATRSTATU = 1';
+	
+	//o campo query recebe a variável criada para inserir os dados
+	document.getElementById('query').value = query;
+}
+</script>
+
+
+ <?php  
+echo $this->headScript()->appendFile($this->basePath() . '/js/custom.js')  // add this line ?>
+    
+    
+</head>
+<body id="main_body" class="safari">
+<div id="form_container">
+    <form id="form_232138" class="appnitro" method="post" action="novaLista.php?idModulo=1&amp;nomeModulo=Controle%20de%20Documentos&amp;acao=salvar">
+        <div class="form_description">
+            <h2>Inserir Nova Lista de Registros</h2>
+            <p>Informe os dados abaixo para criar uma nova lista de registros no módulo <strong>Controle de Documentos</strong> . </p>
+        </div>
+        <ul>
+            <li id="li_1">
+                <label class="description" for="titulo_lista">Título da Lista </label>
+                <div>
+                    <input id="txtnomelista" name="txtnomelista" class="element text large" type="text" maxlength="255" value="">
+                </div>
+                <p class="guidelines" id="guide_1"><small>Este será o título da lista. Ex.: Lista Mestra de Documentos GoodPriv@cy</small></p>
+            </li>
+            <li class="section_break">
+                <h3>Colunas da Lista</h3>
+                <p></p>
+            </li>
+            <li id="li_3">
+                <label class="description" for="coluna_0">Nome das Colunas</label>
+                 <img src="../images/remove.png" title="remover coluna" align="absbottom" onclick="removeElement(document.getElementById('txtatrcol01'),document.getElementById('valor').value)">
+                    <img src="../images/plus_mini.png" width="24" height="24" onclick="copyElement(document.getElementById('txtatrcol01'))" title="adicionar mais colunas" align="absbottom">
+                      
+                <div>
+                    <input id="txtatrcol01" name="txtatrcol01" class="element text medium" type="text" maxlength="255" value="">
+                        <br><br>
+                        </div>
+                <p class="guidelines" id="guide_3"><small>Estes serão os nomes das colunas que formarão a lista. 
+                Ex.: DOCUMENTO, ÁREA RESPONSÁVEL, REVISÃO</small></p>
+            </li>
+        </ul>
+        <style>
+            .create
+            {
+                border:1px solid;
+                width: 85px;
+                cursor:pointer;
+                float:left;
+                padding-top: 5px;
+                
+            }
+            .create:hover{
+                background-color: gray;
+                    
+            }
+            
+            .actions
+            {
+                margin-left: 25px;
+            }
+            
+        </style>
+         <div id="botoes">
+             <input id="valor" type="hidden" name="valor" >
+            <input id="query" type="hidden" name="query" >
+            <input id="counter" type="hidden" value="1">
+             </div>
+        <div class="actions">
+        <div class="create" id="create">&nbsp;Inserir Lista</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <div  class="create" onclick="window.close()" id="Cancel">&nbsp;Cancelar</div>
+        </div>
+        <div id="botoes">
+        	
+       
+                
+                <input id="idmodulo" name ="idmodulo" type="hidden" value=<?php echo $idmodulo ?> >
+                 
+                      </div>
+    </form>
+    <div id="footer">
+	</div>
+<style type="text/css">
+<!--
+#roda{height: 5px; background:#990000; width:95%; margin-top:50px;}
+-->
+</style>
+
+
+	<div align="center">
+    <div id="roda"> </div>
+    <div id="footer" align="center">
+       <p>Copyright - MARCA ACSP - Todos os direitos reservados - 2013<br>
+         Desenvolvido por Engenharia de Processos ACSP   </p>
+	</div>
+    </div>
+    
+    </div>
+  
+
+
+    
+
+</body></html>

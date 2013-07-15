@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SIG - Controle de Documentos</title>
+<link href="folhas_de_estilo/oneColElsCtrHdr.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+<!--
+function MM_effectHighlight(targetElement, duration, startColor, endColor, restoreColor, toggle)
+{
+	Spry.Effect.DoHighlight(targetElement, {duration: duration, from: startColor, to: endColor, restoreColor: restoreColor, toggle: toggle});
+}
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+
+
+</script>
+    
+    <?php  
+echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))  
+    ->prependFile($this->basePath() . '/js/bootstrap.min.js')  
+    ->prependFile($this->basePath() . '/js/jquery.min.js')  
+    ->appendFile($this->basePath() . '/js/custom.js')  // add this line ?>
+    
+
+    
+</head>
+<body class="oneColElsCtrHdr">
+<div id="container"  style="width: 620px;" id="container">
+    <div id="header">
+
+    </div>
+    <div id="mainContent">
+      <p style="font-size: 12px;
+    margin: 0;
+    padding: 10px 0;" align="left"> 
+         
+                Selecione uma das listas abaixo para visualizar seus registros:
+                </a>
+                </p>
+               
+     
+        
+     <?php foreach($lista as $lista):?>
+    
+
+                   <div id="lista">
+                
+                
+        <ul style="text-align: left;">
+                        <li>
+            	<a style="color: #990000;font-size: 12px;font-weight: bold;text-decoration: none;" title="visualizar registros" href="../registrosview/<?php echo $lista->getId() ?>"><b><?php echo $lista->getNote() ?></b></a>
+                           
+                            
+                </div>
+                        </li>
+                        
+                    </ul>
+                
+                    <?php endforeach; ?>
+                <!-- end #mainContent -->
+    </div>
+    <div id="footer">
+		</div>
+<style type="text/css">
+<!--
+#roda{height: 5px; background:#990000; width:95%}
+-->
+</style>
+
+
+  
+
+
+        <!-- end #footer -->
+    
+    <!-- end #container -->
+
+
+
+</body></html>

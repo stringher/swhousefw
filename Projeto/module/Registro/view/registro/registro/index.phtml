@@ -1,0 +1,134 @@
+<?php
+//REGISTRO INDEX
+?>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>SIG - Controle de Documentos</title>
+<link href="folhas_de_estilo/oneColElsCtrHdr.css" rel="stylesheet" type="text/css">
+     <script type="text/javascript">
+<!--
+function MM_effectHighlight(targetElement, duration, startColor, endColor, restoreColor, toggle)
+{
+	Spry.Effect.DoHighlight(targetElement, {duration: duration, from: startColor, to: endColor, restoreColor: restoreColor, toggle: toggle});
+}
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+function disp_confirm(idLista)
+{
+	var r=confirm("Deseja excluir esta Lista e seus registros?");
+	if (r==true)
+	  {
+	  //alert("registro excluido!");
+	  window.location = "remove/"+idLista;
+	  }
+}
+
+//-->
+</script>
+</head>
+<body class="oneColElsCtrHdr">
+<div id="container">
+    <div id="mainContent">
+        <div id="header" align="left">  <h4> Módulos</h4> </div>
+             <table width="102%" >
+                 
+            <tbody>
+                  <?php foreach($atributo as $atributo):?>   
+                <tr>
+                    <td><a href="javascript:void(0)" onclick="MM_openBrWindow('insereregistro/<?php echo $atributo->getId() ?>','insereregistro/<?php echo $atributo->getId() ?>','status=yes,scrollbars=yes,width=600,height=400,top=200')"><img src="../images/new.png" alt="Incluir novo registro" border="0" title="incluir novo registro"></a></td>
+                    
+                </tr>
+                
+                <?php $listaId=$atributo->getId() ?>
+              
+                <tr>
+                    <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol01() ?></strong></td>
+                    <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol02() ?></strong></td>
+                    <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol03() ?></strong></td>
+                    <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol04() ?></strong></td>
+                    <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol05() ?></strong></td>
+                    <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol06() ?></strong></td>
+                    <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol07() ?></strong></td>
+                     <td nowrap="nowrap"><strong><?php echo $atributo->getAtrcol08() ?></strong></td>
+                    <td align="center"><strong>EDITAR</strong></td>
+                    <td align="center"><strong>EXCLUIR</strong></td>
+                  </tr>   
+               <?php endforeach; ?> 
+                
+                <style>
+                    .row0 {
+    background-color: #ffffff;font-size: 12px;
+}
+
+tr.row0:hover {
+    background-color: #ffff00;font-size: 12px;
+}
+
+.row1 {
+    background-color: #f0f0f0;font-size: 12px;
+}
+
+tr.row1:hover {
+    background-color: #ffff00;font-size: 12px;
+}
+                    </style>
+               <?php $rowclass = 0;?>
+             <?php foreach($registro as $registro):?>   
+                
+                  <tr class="row<?= $rowclass ?>"  id="tr1">
+                                
+                                <td><?php echo $registro->getRegcol01() ?></td>
+                                <td><?php echo $registro->getRegcol02() ?></td>
+                                <td><?php echo $registro->getRegcol03() ?></td>
+                                <td><?php echo $registro->getRegcol04() ?></td>
+                                     <td><?php echo $registro->getRegcol05() ?></td>
+                                      <td><?php echo $registro->getRegcol06() ?></td>
+                                                 <td><?php echo $registro->getRegcol07() ?></td>
+                                                  <td><?php echo $registro->getRegcol08() ?></td>
+                                                  
+                                                  <td align="center"><a onclick="MM_openBrWindow('editaregistro/<?php echo $listaId ?>/<?php echo $registro->getId() ?>','editaregistro/<?php echo $listaId ?>/<?php echo $registro->getId() ?>','status=yes,scrollbars=yes,width=600,height=400,top=200')" href="javascript:void(0);"><img height="20" border="0" title="editar registro" alt="editar registro" src="../images/icon_edit.png"></a></td>
+                <td align="center">
+                    <a onmouseup="disp_confirm('<?php echo $registro->getId(); ?>')" onmousedown="MM_effectHighlight('tr1', 1000, '#FFFF99', '#ffffff', '#EFEFEF', false)" href="javascript:void(0);">
+                        <img height="20" border="0" title="excluir registro" alt="excluir registro" src="../images/icon_delete.png"></a>
+                
+                    <a href="#" class="delete" id="remove-<?php echo $registro->getId(); ?>" >
+                                <img src="../images/remove.png" width="25" height="25" border="0" title="excluir lista">
+                            </a>  
+                
+                </td>
+            
+                  </tr>
+                  <tr bgcolor="#FFFFFF" id="tr3">
+                  </tr>
+                <?php $rowclass = 1 - $rowclass; ?>
+                                   
+                    
+                    <?php endforeach; ?>
+                </tbody></table>
+                                
+                <!-- end #mainContent -->
+    </div>
+    <div id="footer">
+		</div>
+<style type="text/css">
+<!--
+#roda{height: 5px; background:#990000; width:95%}
+-->
+</style>
+
+
+  
+
+
+        <!-- end #footer -->
+    
+    <!-- end #container -->
+
+<?php 
+
+ echo $this->headScript()->appendFile($this->basePath() . '/js/custom2.js')  // add this line ?>
+
+</body>
+ 
+</html>
